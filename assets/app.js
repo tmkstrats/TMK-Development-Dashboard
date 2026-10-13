@@ -54,7 +54,7 @@ function card(p) {
   return el("article", { class: "card" },
     el("div", { class: "card-head" },
       el("div", {}, el("div", { class: "type" }, p.type || ""), el("h2", {}, p.name)),
-      el("span", { class: `badge ${p.status}` }, p.status || "—")
+      el("span", { class: `badge ${p.status || "archived"}` }, p.status || "unset")
     ),
     p.description ? el("p", { class: "desc" }, p.description) : null,
     p.tags?.length ? el("div", { class: "tags" }, ...p.tags.map((t) => el("span", { class: "tag" }, t))) : null,

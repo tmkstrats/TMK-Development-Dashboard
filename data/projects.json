@@ -2,15 +2,73 @@
   "owner": "TMK",
   "projects": [
     {
-      "id": "example-venture",
-      "name": "Example Venture",
-      "type": "Business",
-      "status": "active",
-      "description": "Placeholder — replace with your real projects. Delete this entry once you add your own.",
-      "tags": ["example"],
-      "links": [
-        { "label": "Website", "url": "https://example.com" }
-      ],
+      "id": "sitechain-solutions",
+      "name": "SiteChain Solutions",
+      "type": "",
+      "status": "",
+      "description": "",
+      "tags": [],
+      "links": [],
+      "integrations": {}
+    },
+    {
+      "id": "shoreguard",
+      "name": "Shoreguard",
+      "type": "",
+      "status": "",
+      "description": "",
+      "tags": [],
+      "links": [],
+      "integrations": {}
+    },
+    {
+      "id": "tmk-strategies",
+      "name": "TMK Strategies",
+      "type": "",
+      "status": "",
+      "description": "",
+      "tags": [],
+      "links": [],
+      "integrations": {}
+    },
+    {
+      "id": "small-cap-terminal",
+      "name": "Small Cap Terminal",
+      "type": "",
+      "status": "",
+      "description": "",
+      "tags": [],
+      "links": [],
+      "integrations": {}
+    },
+    {
+      "id": "judean-pioneers-foundation",
+      "name": "Judean Pioneers Foundation",
+      "type": "",
+      "status": "",
+      "description": "",
+      "tags": [],
+      "links": [],
+      "integrations": {}
+    },
+    {
+      "id": "tmk-analyst",
+      "name": "TMK Analyst",
+      "type": "",
+      "status": "",
+      "description": "",
+      "tags": [],
+      "links": [],
+      "integrations": {}
+    },
+    {
+      "id": "tmk-ventures-acquisitions",
+      "name": "TMK Ventures & Acquisitions",
+      "type": "",
+      "status": "",
+      "description": "",
+      "tags": [],
+      "links": [],
       "integrations": {}
     }
   ]
