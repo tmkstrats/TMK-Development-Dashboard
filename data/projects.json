@@ -1,0 +1,17 @@
+{
+  "owner": "TMK",
+  "projects": [
+    {
+      "id": "example-venture",
+      "name": "Example Venture",
+      "type": "Business",
+      "status": "active",
+      "description": "Placeholder — replace with your real projects. Delete this entry once you add your own.",
+      "tags": ["example"],
+      "links": [
+        { "label": "Website", "url": "https://example.com" }
+      ],
+      "integrations": {}
+    }
+  ]
+}

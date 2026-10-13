@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TMK Portal</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div>
+        <h1 id="title">TMK Portal</h1>
+        <p class="sub">Projects, businesses &amp; ventures</p>
+      </div>
+      <button id="theme" class="ghost" aria-label="Toggle light/dark theme">Theme</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="stats" id="stats"></section>
+
+    <section class="controls">
+      <input id="search" type="search" placeholder="Search projects…" aria-label="Search projects">
+      <div class="filters" id="typeFilters" role="group" aria-label="Filter by type"></div>
+      <select id="statusFilter" aria-label="Filter by status">
+        <option value="">All statuses</option>
+      </select>
+    </section>
+
+    <section class="grid" id="grid" aria-live="polite"></section>
+    <p class="empty" id="empty" hidden>No projects match.</p>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
