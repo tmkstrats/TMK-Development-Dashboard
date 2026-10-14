@@ -18,10 +18,11 @@ Edit `data/projects.json`. Each entry:
 | `id`           | Unique slug                                                  |
 | `name`         | Display name                                                 |
 | `type`         | Free text, e.g. Business, Venture, Side project; drives the filter chips |
-| `status`       | `active`, `building`, `paused`, `idea`, `archived`           |
+| `status`       | One or more of `active`, `building`, `paused`, `idea`, `archived` (string or array) |
 | `description`  | One or two lines                                             |
 | `tags`         | Array of strings                                             |
 | `links`        | `[{ "label": "Website", "url": "https://…" }]`               |
+| `documents`    | Same shape as `links`; shown under a Documents heading      |
 | `integrations` | Connected services, e.g. `{ "netlify": "site-id", "github": "owner/repo" }` |
 
 ## Deploy

@@ -67,6 +67,9 @@ button { cursor: pointer; }
 .badge.paused { color: var(--paused); }
 .badge.idea { color: var(--idea); }
 .badge.archived { color: var(--archived); }
+.badges { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+.docs { display: flex; flex-direction: column; gap: 6px; }
+.section-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag { font-size: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1px 7px; color: var(--muted); }
 .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }

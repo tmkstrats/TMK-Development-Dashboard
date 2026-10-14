@@ -1,6 +1,10 @@
 const STATUSES = ["active", "building", "paused", "idea", "archived"];
 const state = { projects: [], type: "", status: "", q: "" };
 
+// `status` may be a single string or an array, e.g. ["active", "building"].
+const statusesOf = (p) => [].concat(p.status || []).filter(Boolean);
+const linkList = (items) => el("div", { class: "links" }, ...items.map((l) => el("a", { href: l.url, target: "_blank", rel: "noopener" }, l.label + " ↗")));
+
 const $ = (id) => document.getElementById(id);
 const el = (tag, attrs = {}, ...children) => {
   const node = document.createElement(tag);
@@ -29,7 +33,7 @@ function initTheme() {
 
 function renderStats() {
   const counts = Object.fromEntries(STATUSES.map((s) => [s, 0]));
-  state.projects.forEach((p) => { counts[p.status] = (counts[p.status] || 0) + 1; });
+  state.projects.forEach((p) => statusesOf(p).forEach((s) => { counts[s] = (counts[s] || 0) + 1; }));
   const items = [["Total", state.projects.length], ...STATUSES.filter((s) => counts[s]).map((s) => [s[0].toUpperCase() + s.slice(1), counts[s]])];
   $("stats").replaceChildren(...items.map(([label, n]) => el("div", { class: "stat" }, el("b", {}, String(n)), el("span", {}, label))));
 }
@@ -54,11 +58,14 @@ function card(p) {
   return el("article", { class: "card" },
     el("div", { class: "card-head" },
       el("div", {}, el("div", { class: "type" }, p.type || ""), el("h2", {}, p.name)),
-      el("span", { class: `badge ${p.status || "archived"}` }, p.status || "unset")
+      el("div", { class: "badges" }, ...(statusesOf(p).length
+        ? statusesOf(p).map((s) => el("span", { class: `badge ${s}` }, s))
+        : [el("span", { class: "badge archived" }, "unset")]))
     ),
     p.description ? el("p", { class: "desc" }, p.description) : null,
     p.tags?.length ? el("div", { class: "tags" }, ...p.tags.map((t) => el("span", { class: "tag" }, t))) : null,
-    p.links?.length ? el("div", { class: "links" }, ...p.links.map((l) => el("a", { href: l.url, target: "_blank", rel: "noopener" }, l.label + " ↗"))) : null,
+    p.links?.length ? linkList(p.links) : null,
+    p.documents?.length ? el("div", { class: "docs" }, el("div", { class: "section-label" }, "Documents"), linkList(p.documents)) : null,
     integrations.length ? el("div", { class: "integrations" }, "Connected: " + integrations.map(([k]) => k).join(", ")) : null
   );
 }
@@ -67,7 +74,7 @@ function renderGrid() {
   const q = state.q.toLowerCase();
   const list = state.projects.filter((p) =>
     (!state.type || p.type === state.type) &&
-    (!state.status || p.status === state.status) &&
+    (!state.status || statusesOf(p).includes(state.status)) &&
     (!q || [p.name, p.description, p.type, ...(p.tags || [])].join(" ").toLowerCase().includes(q))
   );
   $("grid").replaceChildren(...list.map(card));
