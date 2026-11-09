@@ -1,0 +1,27 @@
+# Render Blueprint: Dashboard → New → Blueprint → pick this repo.
+# Plans: the paid tiers keep the service awake (needed for reminders to fire on time)
+# and keep the database from expiring. Change both to "free" to try it out first.
+services:
+  - type: web
+    name: tmk-portal
+    runtime: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tmk-portal-db
+          property: connectionString
+      - key: PORTAL_PASSWORD
+        sync: false
+
+databases:
+  - name: tmk-portal-db
+    plan: basic-256mb
+    databaseName: tmk_portal

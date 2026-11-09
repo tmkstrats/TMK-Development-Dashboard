@@ -1,7 +1,0 @@
-[build]
-  publish = "."
-
-[[headers]]
-  for = "/data/*"
-  [headers.values]
-    Cache-Control = "no-cache"

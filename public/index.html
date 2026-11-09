@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#3355ff">
+  <title>TMK Portal</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div id="login" class="login" hidden>
+    <form id="loginForm" class="login-card">
+      <h1>TMK Portal</h1>
+      <label>Password <input type="password" name="password" autocomplete="current-password" required autofocus></label>
+      <button type="submit" class="primary">Sign in</button>
+      <p class="error" id="loginError" role="alert"></p>
+    </form>
+  </div>
+
+  <div id="app" hidden>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a href="#today" class="brand">TMK Portal</a>
+        <nav class="nav" id="nav">
+          <a href="#today">Today</a>
+          <a href="#projects">Projects</a>
+          <a href="#time">Time</a>
+          <a href="#performance">Performance</a>
+          <a href="#reminders">Reminders</a>
+        </nav>
+        <div class="top-actions">
+          <button id="timerPill" class="timer-pill" hidden></button>
+          <a href="#reminders" id="bell" class="bell" aria-label="Notifications">🔔<span id="bellCount" hidden></span></a>
+          <button id="theme" class="ghost small" aria-label="Toggle light/dark theme">Theme</button>
+          <button id="logout" class="ghost small">Sign out</button>
+        </div>
+      </div>
+    </header>
+    <main class="wrap" id="view"></main>
+  </div>
+
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+  <script src="assets/app.js" type="module"></script>
+</body>
+</html>
